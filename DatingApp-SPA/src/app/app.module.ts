@@ -1,3 +1,6 @@
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { MemeberEditResolver } from './_resolvers/member-edit.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
@@ -37,7 +40,8 @@ export function tokenGetter(){
       MemberListComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ export function tokenGetter(){
   providers: [
     AuthService, 
     ErrorInterceptorProvider,
-    MemeberDetailResolver
+    MemeberDetailResolver,
+    MemeberEditResolver,
+    PreventUnsavedChanges
   ],
   bootstrap: [AppComponent]
 })
